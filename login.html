@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Đăng nhập | Web Basic</title>
+
+        <!-- Bootstrap CSS đặt trước CSS tự viết. -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous">
+
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+
+    <body class="bg-body-tertiary d-flex flex-column min-vh-100">
+        <header class="bg-white border-bottom py-3">
+            <div class="container">
+                <!-- Có thể thay header này bằng Navbar chung của website. -->
+                <a href="index.html" class="text-decoration-none fw-bold">
+                    Web Basic — Về trang chủ
+                </a>
+            </div>
+        </header>
+
+        <!-- Bước 1: Đặt form trong main.
+       flex-grow-1 và align-items-center giúp canh giữa theo chiều dọc. -->
+        <main class="container flex-grow-1 d-flex align-items-center py-5">
+            <div class="row justify-content-center w-100 mx-0">
+                <!-- Form rộng toàn bộ trên điện thoại, thu gọn trên màn hình lớn. -->
+                <div class="col-12 col-md-8 col-lg-5">
+                    <section class="card border-0 shadow-sm rounded-4"
+                        aria-labelledby="login-title">
+                        <div class="card-body p-4">
+                            <h1 id="login-title"
+                                class="h3 text-center mb-2">Đăng nhập</h1>
+                            <p class="text-secondary text-center mb-4">
+                                Chào mừng em quay trở lại!
+                            </p>
+
+                            <!-- Bước 2: Tạo form.
+                 novalidate tắt thông báo mặc định của trình duyệt,
+                 để hiển thị phản hồi bằng Bootstrap ở bên dưới.
+                 JS cuối trang vẫn kiểm tra các điều kiện HTML.
+                 method="post" tránh đưa mật khẩu lên URL nếu gửi form. -->
+                            <form id="login-form" method="post"
+                                class="needs-validation" novalidate>
+
+                                <div class="mb-3">
+                                    <!-- for của label phải trùng id của input.
+                     name là tên trường khi gửi dữ liệu tới backend. -->
+                                    <label for="login-email"
+                                        class="form-label">Email</label>
+                                    <input
+                                        type="email"
+                                        id="login-email"
+                                        name="email"
+                                        class="form-control"
+                                        placeholder="em@example.com"
+                                        autocomplete="username"
+                                        aria-describedby="login-email-error"
+                                        required>
+                                    <div id="login-email-error"
+                                        class="invalid-feedback">
+                                        Vui lòng nhập email hợp lệ.
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="login-password"
+                                        class="form-label">
+                                        Mật khẩu
+                                    </label>
+                                    <!-- type="password" che ký tự khi nhập.
+                     Không đặt sẵn mật khẩu trong thuộc tính value. -->
+                                    <input
+                                        type="password"
+                                        id="login-password"
+                                        name="password"
+                                        class="form-control"
+                                        autocomplete="current-password"
+                                        aria-describedby="login-password-error"
+                                        required>
+                                    <div id="login-password-error"
+                                        class="invalid-feedback">
+                                        Vui lòng nhập mật khẩu.
+                                    </div>
+                                </div>
+
+                                <!-- Bước 3: type="submit" kích hoạt sự kiện submit của form. -->
+                                <button type="submit"
+                                    class="btn btn-primary w-100">
+                                    Đăng nhập
+                                </button>
+
+                                <!-- JS sẽ cập nhật thông báo; không hiển thị mật khẩu tại đây. -->
+                                <p id="login-status" class="small mt-3 mb-0"
+                                    role="status"></p>
+                            </form>
+
+                            <!-- Bước 4: Chuyển sang file HTML đăng ký cùng thư mục. -->
+                            <p class="text-center mt-4 mb-0">
+                                Chưa có tài khoản?
+                                <a href="register.html">Đăng ký</a>
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="text-center text-secondary py-3">
+            <small>&copy; Web Basic — Thực hiện bởi: Tên của em</small>
+        </footer>
+
+        <!-- Bootstrap Bundle đã bao gồm Popper. -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+        <script src="assets/js/main.js"></script>
+
+        <!-- Bước 5: JS nhỏ để minh họa validation.
+       Khi học JS, có thể chuyển đoạn này sang main.js;
+       nhớ kiểm tra form tồn tại trước khi gắn sự kiện. -->
+        <script>
+    const loginForm = document.getElementById("login-form");
+    const loginStatus = document.getElementById("login-status");
+
+    loginForm.addEventListener("submit", function (event) {
+      // Chặn gửi form vì bài thực hành chưa có backend.
+      event.preventDefault();
+
+      // Bootstrap dùng class này để hiện trạng thái hợp lệ/không hợp lệ.
+      loginForm.classList.add("was-validated");
+
+      if (!loginForm.checkValidity()) {
+        loginStatus.textContent = "Em hãy kiểm tra các trường được đánh dấu.";
+        loginForm.querySelector(":invalid").focus();
+        return;
+      }
+
+      loginStatus.textContent =
+        "Dữ liệu đúng định dạng. Bản mẫu chưa thực hiện đăng nhập.";
+
+      // TODO: Khóa học sau sẽ kết nối API đăng nhập tại đây.
+      // Không lưu mật khẩu trong localStorage hoặc in ra console.
+    });
+  </script>
+    </body>
+</html>

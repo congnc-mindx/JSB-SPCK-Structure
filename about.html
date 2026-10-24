@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bước 0: Đặt tiêu đề riêng cho từng trang. -->
+    <title>Giới thiệu | Web Basic</title>
+    <!-- Bootstrap CSS đặt trước CSS tự viết. Cần Internet để tải CDN. -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <a href="#main-content" class="visually-hidden-focusable">Đến nội dung
+      chính</a>
+    <header>
+      <!-- Bước 1: NAVBAR. Đổi tên website; giữ các href trỏ tới file HTML.
+         Khi sửa menu, nhớ cập nhật cả 3 trang. -->
+      <nav class="navbar navbar-expand-md bg-body-tertiary"
+        aria-label="Điều hướng chính">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">Web Basic</a>
+          <!-- Nút mở menu trên màn hình nhỏ.
+             data-bs-target phải khớp id của khối collapse bên dưới. -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#main-menu" aria-controls="main-menu"
+            aria-expanded="false" aria-label="Mở hoặc đóng menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="main-menu">
+            <!-- Chỉ link của trang đang mở có active và aria-current="page". -->
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link"
+                  href="index.html">Trang chủ</a></li>
+              <li class="nav-item"><a class="nav-link active"
+                  aria-current="page"
+                  href="about.html">Giới thiệu</a></li>
+              <li class="nav-item"><a class="nav-link"
+                  href="contact.html">Liên hệ</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Đăng nhập</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="register.html">Đăng ký</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="flex-grow-1">
+      <!-- Bước 2: BANNER. Mỗi trang có một h1 mô tả nội dung chính. -->
+      <section class="hero py-5" aria-labelledby="page-title">
+        <div class="container">
+          <h1 id="page-title">Giới thiệu dự án</h1>
+          <p class="lead mb-0">TODO: Viết một câu mô tả về cá nhân, nhóm hoặc
+            cửa hàng.</p>
+        </div>
+      </section>
+
+      <!-- Bước 3: SECTION NỘI DUNG. Điền thông tin thật của dự án. -->
+      <section class="container py-5" aria-labelledby="content-title">
+        <h2 id="content-title">Chúng em là ai?</h2>
+        <p>TODO: Giới thiệu thành viên và lý do thực hiện website.</p>
+        <h3 class="h5">Mục tiêu của dự án</h3>
+        <ul>
+          <li>TODO: Mục tiêu thứ nhất.</li>
+          <li>TODO: Mục tiêu thứ hai.</li>
+        </ul>
+        <!-- Thêm ảnh: chép ảnh vào assets/images/ rồi bỏ comment dòng dưới.
+             Sửa src đúng tên ảnh và viết alt mô tả nội dung ảnh.
+        <img src="assets/images/nhom.jpg" class="img-fluid rounded"
+             alt="Các thành viên nhóm thực hiện dự án">
+        -->
+      </section>
+      <!-- TODO: Thêm section mới bên trong main nếu đề bài cần. -->
+    </main>
+
+    <!-- Bước 4: FOOTER. Thay tên tác giả/nhóm và cập nhật ở cả 3 trang. -->
+    <footer class="bg-dark text-white py-3">
+      <div class="container text-center">
+        <p class="mb-0">&copy; Web Basic — Thực hiện bởi: Tên của em</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle đã có Popper; không cần nạp Popper lần nữa. -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"></script>
+    <!-- JS tự viết là tùy chọn. Chưa học JS thì có thể giữ file trống. -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+/* CSS chung cho tất cả các trang. File này được nạp sau Bootstrap. */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.hero {
+  background-color: #eaf2ff;
+  color: #16325c;
+}
+
+/* TODO: Thêm class riêng bên dưới; ví dụ .product-card hoặc .about-photo.
+   Không sửa trực tiếp file CSS của Bootstrap. */
